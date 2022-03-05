@@ -1,0 +1,155 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My second fabric/threejs app</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+      }
+
+      #designCanvas {
+        position: absolute;
+        width: 830px;
+        height: 901px;
+        left: 0px;
+        top: 0px;
+        touch-action: none;
+        user-select: none;
+        border: 1px solid black;
+      }
+
+      .upper-canvas {
+        z-index: 20;
+      }
+
+      .mask {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: 10;
+      }
+
+      #scene-container {
+        width: 100%;
+        height: 100%;
+        background-color: skyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-7">
+          <div class="position-relative">
+            <canvas id="designCanvas"></canvas>
+            <div class="mask" style="transform: scale(1);">
+              <svg
+                id="SvgjsSvg2590"
+                width="834.5"
+                height="905.6"
+                xmlns="http://www.w3.org/2000/svg"
+                version="1.1"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:svgjs="http://svgjs.com/svgjs"
+              >
+                <defs id="SvgjsDefs2591">
+                  <mask id="SvgjsMask2597">
+                    <g id="SvgjsG2594">
+                      <rect
+                        id="SvgjsRect2595"
+                        width="834.5"
+                        height="905.6"
+                        fill="#ffffff"
+                      ></rect>
+                      <path
+                        id="SvgjsPath2596"
+                        d="
+            M 0 126.4 h 148.125 l49.375 106.65 v 19.75 h 197.5 v -19.75 l 49.375 -106.65 h 148.125 v -98.75 a 27.65 27.65 0 0 1 27.65 -27.65 h 142.2 a 27.65 27.65 0 0 1 27.65 27.65
+            v 225.15 l 39.5 39.5 v 316 l -39.5 39.5 v 225.15 a 27.65 27.65 0 0 1 -27.65 27.65
+            h -142.2 a 27.65 27.65 0 0 1 -27.65 -27.65 v -98.75 h -148.125 l -49.375 -106.65
+            v -19.75 h -197.5 v 19.75 l -49.375 106.65 h -148.125 z
+            "
+                        fill="#000000"
+                      ></path>
+                    </g>
+                  </mask>
+                </defs>
+                <path
+                  id="SvgjsPath2592"
+                  d="
+            M 592.5 126.4 v 126.4 m 0 395 v 126.4
+            M 592.5 845.3 h 19.75 M 790 845.3 h -19.75
+            "
+                  stroke="blue"
+                  stroke-width="1"
+                  fill="none"
+                  shape-rendering="crispEdges"
+                ></path>
+                <rect
+                  id="SvgjsRect2593"
+                  width="834.5"
+                  height="905.6"
+                  fill="#d7d7d7"
+                  mask='url("#SvgjsMask2597")'
+                ></rect>
+                <path
+                  id="SvgjsPath2598"
+                  d="
+            M 0 126.4 h 148.125 l49.375 106.65 v 19.75 h 197.5 v -19.75 l 49.375 -106.65 h 148.125 v -98.75 a 27.65 27.65 0 0 1 27.65 -27.65 h 142.2 a 27.65 27.65 0 0 1 27.65 27.65
+            v 225.15 l 39.5 39.5 v 316 l -39.5 39.5 v 225.15 a 27.65 27.65 0 0 1 -27.65 27.65
+            h -142.2 a 27.65 27.65 0 0 1 -27.65 -27.65 v -98.75 h -148.125 l -49.375 -106.65
+            v -19.75 h -197.5 v 19.75 l -49.375 106.65 h -148.125 z
+            "
+                  stroke="blue"
+                  stroke-width="1"
+                  fill="none"
+                  shape-rendering="geometricPrecision"
+                ></path>
+                <path
+                  id="SvgjsPath2599"
+                  d="
+            M 0 252.8 h 197.5 v 395 h -197.5 m 395 0 h 395 v -395 h -395 v 395 m 197.5 0 v -395
+            M 592.5 55.3 h 197.5 M 612.25 845.3 h 158
+            "
+                  stroke="rgba(255,255,255,.8)"
+                  stroke-width="1"
+                  fill="none"
+                  shape-rendering="crispEdges"
+                ></path>
+                <path
+                  id="SvgjsPath2600"
+                  d="
+            M 0 252.8 h 197.5 v 395 h -197.5 m 395 0 h 395 v -395 h -395 v 395 m 197.5 0 v -395
+            M 592.5 55.3 h 197.5 M 612.25 845.3 h 158
+            "
+                  stroke="rgba(255,0,0,0.5)"
+                  stroke-width="1"
+                  fill="none"
+                  stroke-dasharray="5 3"
+                  shape-rendering="crispEdges"
+                ></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="col-5">
+          <div id="scene-container"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"
+  ></script>
+  <script src="index.js"></script>
+</html>
